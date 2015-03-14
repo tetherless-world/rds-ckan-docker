@@ -1,0 +1,6 @@
+[submodule "_src/ckan"]
+	path = _src/ckan
+	url = https://github.com/ckan/ckan.git
+[submodule "_service-provider/_datapusher/datapusher"]
+	path = _service-provider/_datapusher/datapusher
+	url = https://github.com/ckan/datapusher.git
