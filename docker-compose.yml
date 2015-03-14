@@ -8,7 +8,7 @@ postgres:
   hostname: postgres
   domainname: data.tw.rpi.edu
   ports:
-    - "127.0.0.1:5432:5432"
+    - "127.0.0.1:15432:5432"
   volumes_from:
     - data
   environment:
@@ -20,7 +20,7 @@ solr:
   hostname: solr
   domainname: data.tw.rpi.edu
   ports:
-    - "127.0.0.1:8983:8983"
+    - "127.0.0.1:18983:8983"
   volumes:
     - ./_src/ckan/ckan/config/solr/schema.xml:/opt/solr/example/solr/ckan/conf/schema.xml
 
@@ -29,16 +29,16 @@ datapusher:
   hostname: datapusher
   domainname: data.tw.rpi.edu
   ports:
-    - "127.0.0.1:8800:8800"
+    - "127.0.0.1:18800:8800"
 
 ckan:
   build: .
   hostname: ckan
   domainname: data.tw.rpi.edu
   ports:
-    - "127.0.0.1:2222:22"
-    - "127.0.0.1:5000:5000"
-    - "127.0.0.1:8080:80"
+    - "127.0.0.1:12222:22"
+    - "127.0.0.1:15000:5000"
+    - "127.0.0.1:18080:80"
   links:
     - postgres:postgres
     - solr:solr
@@ -58,7 +58,7 @@ nginx:
   links:
     - ckan:ckan
   ports:
-    - "127.0.0.1:80:80"
+    - "127.0.0.1:10080:80"
   volumes:
     - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
 
